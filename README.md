@@ -8,7 +8,7 @@ MBTI 성격 유형 검사를 웹과 모바일에서 간단하게 진행할 수 �
 ## 🌎 Tech
 React, Vite, style-components, Git
 
-## 🖥️ Soft Skill
+## 🖥️ Other Skill
 Kakao API, Netlify
 
 ## 🥺 문제점
