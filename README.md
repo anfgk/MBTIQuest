@@ -1,8 +1,29 @@
-# React + Vite
+# MBTI PROJECT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🌈 프로젝트 소개
+MBTI 성격 유형 검사를 웹과 모바일에서 간단하게 진행할 수 있도록 구현한 프로젝트입니다.
 
-Currently, two official plugins are available:
+## 🕰️ 개발기간
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌎 Tech
+React, Vite, style-components, Git
+
+## 🖥️ Soft Skill
+Kakao API, Netlify
+
+## 🥺 문제점
+- 사용자의 선택을 바탕으로 MBTI 결과를 도출하는 과정에서 로직이 꼬이거나 정확한 결과가 나오지 않는 문제가 발생
+- 반응형 디자인이 특정 해상도에서 깨지는 현상이 나타남
+
+## 💡 해결한 방법
+1. 질문 데이터와 결과 매핑 로직 개선
+    - 각 질문마다 가중치를 부여하여 점수를 계산하는 방식으로 변경
+    - 새로운 질문 추가 시 관련 데이터 한 번에 관리 가능하도록 JSON 구조를 최적화하여 유지보수성을 높임
+2. 반응형 디자인 문제 해결
+    - flexbox 및 grid를 활용해 요소 배치를 조정
+    - 미디어 쿼리를 추가하여 다양한 해상도에서 정상적으로 표시되도록 수정
+    - 모바일 사용자가 더 많은 점을 고려해, 반응형 환경에서는 모바일 화면에 최적화된 이미지를 사용하여 시각적 완성도를 높임
+
+## 배운점
+- JSON 데이터를 활용하면 유지보수 및 확장성이 뛰어남을 배움
+- 정적인 화면 전환보다 시각적 피드백을 통해 사용자 경험을 더욱 직관적이고 몰입감 있게 만들기 위해 이후 애니메이션 효과를 추가하여 UI/UX 개선하고 싶다고 느낌
