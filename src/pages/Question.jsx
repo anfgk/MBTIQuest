@@ -1,71 +1,131 @@
 import React, { useState } from "react";
 import { createSearchParams, useNavigate } from "react-router-dom";
-import { Button, ProgressBar } from "react-bootstrap";
+import { ProgressBar } from "react-bootstrap";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { QuestionData } from "../assets/questiondata";
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 98vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #111;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.5);
 `;
 
-const Title = styled.div`
-  font-size: 28px;
-  width: auto;
+const ProgressBarWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 10;
+
+  .progress {
+    height: 0.8rem;
+    background: #e9ecef;
+    border-radius: 1rem;
+  }
+
+  .progress-bar {
+    background: #dc3545;
+    border-radius: 1rem;
+  }
+`;
+
+const QuestionContainer = styled(motion.div)`
+  max-width: 800px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 2rem;
+`;
+
+const Title = styled(motion.div)`
+  font-size: 2rem;
   text-align: center;
-  margin-bottom: 10px;
-  padding: 16px 16px;
-  background: #fff;
-  border-radius: 8px;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  line-height: 1.5;
+  color: #2d3748;
+  font-weight: 600;
 
   @media screen and (max-width: 780px) {
-    width: 300px;
-    font-size: 24px;
-    padding: 6px 12px;
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
   }
 
   @media screen and (max-width: 360px) {
-    width: 200px;
-    font-size: 18px;
-    padding: 4px 8px;
+    font-size: 1.2rem;
+    padding: 0.8rem;
   }
 `;
 
-const ButtonGroup = styled.div`
+const ButtonGroup = styled(motion.div)`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  & > button {
-    width: 400px;
-    height: 200px;
-    font-size: 18px;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+`;
+
+const AnswerButton = styled(motion.button)`
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.2rem;
+  text-align: left;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1.5;
+  color: #4a5568;
+  position: relative;
+  /* overflow: hidden; */
+
+  &:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    transform: translateY(0);
+    background: white;
+  }
+
+  &:disabled {
+    transform: none;
+    background: white;
   }
 
   @media screen and (max-width: 780px) {
-    flex-direction: column;
-    padding: 10px;
-    & > button {
-      width: 100%;
-      height: 100%;
-      font-size: 18px;
-    }
+    font-size: 1.1rem;
+    padding: 1.2rem;
   }
 
   @media screen and (max-width: 360px) {
-    flex-direction: column;
-    padding: 10px;
-    & > button {
-      width: 100%;
-      height: 100%;
-      font-size: 18px;
-    }
+    font-size: 1rem;
+    padding: 1rem;
   }
+`;
+
+const QuestionNumber = styled.div`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.9rem;
+  color: #a0aec0;
+  font-weight: 600;
 `;
 
 const Question = () => {
@@ -128,36 +188,52 @@ const Question = () => {
   };
 
   return (
-    <>
-      {/* 진행 상태를 보여주는 ProgressBar */}
-      <ProgressBar
-        striped
-        variant="success"
-        now={(questionNo / QuestionData.length) * 100} // 진행률 계산
-      />
-      {/* 질문 및 버튼 렌더링 */}
-      <Wrapper>
-        <Title>{QuestionData[questionNo].title}</Title>
+    <Wrapper>
+      <ProgressBarWrapper>
+        <ProgressBar
+          now={(questionNo / QuestionData.length) * 100}
+          variant="danger"
+        />
+      </ProgressBarWrapper>
+
+      <QuestionContainer
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <QuestionNumber>
+          Question {questionNo + 1} / {QuestionData.length}
+        </QuestionNumber>
+
+        <Title
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          {QuestionData[questionNo].title}
+        </Title>
+
         <ButtonGroup>
-          {/* 첫 번째 버튼 선택 시 점수 추가 */}
-          <Button
-            variant="outline-light"
+          <AnswerButton
             onClick={() => handleClickButton(1, QuestionData[questionNo].type)}
             disabled={isButtonDisabled}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             {QuestionData[questionNo].answera}
-          </Button>
-          {/* 두 번째 버튼 선택 시 점수 유지 */}
-          <Button
-            variant="outline-light"
+          </AnswerButton>
+
+          <AnswerButton
             onClick={() => handleClickButton(0, QuestionData[questionNo].type)}
             disabled={isButtonDisabled}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             {QuestionData[questionNo].answerb}
-          </Button>
+          </AnswerButton>
         </ButtonGroup>
-      </Wrapper>
-    </>
+      </QuestionContainer>
+    </Wrapper>
   );
 };
 

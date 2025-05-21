@@ -53,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     font-family: "SimKyungha";
-    background: url("/img/home.jpg") center/cover no-repeat;
+    background: url("/img/home.webp") center/cover no-repeat;
     height: 100vh;  
     @media screen and (max-width: 390px) {
       background: url("/img/media.jpg") center/cover no-repeat;

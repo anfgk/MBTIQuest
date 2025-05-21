@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom"; // 페이지 이동을 위한 useNavigate 가져오기
 import styled from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css"; // Bootstrap 스타일 불러오기
-import { Button } from "react-bootstrap"; // Bootstrap의 버튼 컴포넌트 사용
+import { motion } from "framer-motion";
 
 const Wrapper = styled.div`
   display: flex;
@@ -15,6 +15,7 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.div`
+  margin-bottom: 2rem;
   img {
     width: 500px;
     height: 170px;
@@ -34,11 +35,31 @@ const Contents = styled.div`
   align-items: center;
 `;
 
-const Title = styled.div`
-  font-size: 40px;
-  margin: 20px 0 50px;
+const StartButton = styled(motion.button)`
+  padding: 1rem 2.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  background: #dc3545;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 53, 69, 0.6);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(220, 53, 69, 0.4);
+  }
+
   @media screen and (max-width: 390px) {
-    font-size: 30px;
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -53,15 +74,27 @@ const Home = () => {
     <Wrapper>
       {/* 상단 이미지 영역 */}
       <Header>
-        <img src="../img/title.png" alt="title" /> {/* 타이틀 이미지 삽입 */}
+        <motion.img
+          src="../img/title.png"
+          alt="title"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        />
       </Header>
       {/* 메인 콘텐츠 영역 */}
       <Contents>
-        <Title>나와 잘 맞는 캐릭터는?</Title> {/* 페이지 제목 출력 */}
         {/* 시작하기 버튼 */}
-        <Button variant="danger" size="lg" onClick={handleClickButton}>
-          시작하기
-        </Button>
+        <StartButton
+          onClick={handleClickButton}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          MBTI 테스트
+        </StartButton>
       </Contents>
     </Wrapper>
   );

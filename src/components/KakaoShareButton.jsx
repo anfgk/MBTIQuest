@@ -1,9 +1,32 @@
 // React 및 useEffect 훅, Button 컴포넌트 불러오기
 import React, { useEffect } from "react";
 import { Button } from "react-bootstrap";
+import { motion } from "framer-motion";
+import styled from "styled-components";
 
 // Kakao 객체를 window에서 가져오기
 const { Kakao } = window;
+
+const ShareButton = styled(Button)`
+  background: #fee500 !important;
+  border: none !important;
+  color: #000000 !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  padding: 0.8rem 1.5rem;
+
+  &:hover {
+    background: #fdd835 !important;
+    color: #000000 !important;
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+`;
 
 const KakaoShareButton = ({ data }) => {
   // 공유할 URL 설정 (기본 URL 및 현재 페이지 URL)
@@ -43,9 +66,17 @@ const KakaoShareButton = ({ data }) => {
 
   // 공유 버튼 UI (클릭 시 shareKakao 함수 실행)
   return (
-    <Button variant="warning" onClick={shareKakao}>
+    <ShareButton
+      as={motion.button}
+      onClick={shareKakao}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+    >
       카카오톡 공유하기
-    </Button>
+    </ShareButton>
   );
 };
 
