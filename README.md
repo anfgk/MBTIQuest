@@ -7,7 +7,7 @@ MBTI 테스트를 통해 사용자의 성격 유형을 분석하고 결과를 �
 2025.04.14 ~ 2025.05.02
 
 ## 🌎 Tech
-React.js, Vite, style-components, GitHub
+React.js, Vite, Style-components, GitHub
 
 ## 🖥️ Other Skill
 Kakao Share API, Netlify, React-Bootstrap, Framer Motion, React Router
