@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   align-items: center;
   padding: 2rem;
   background: rgba(255, 255, 255, 0.5);
+  font-family: sans-serif;
 `;
 
 const ProgressBarWrapper = styled.div`
@@ -45,7 +46,7 @@ const QuestionContainer = styled(motion.div)`
 `;
 
 const Title = styled(motion.div)`
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   margin-bottom: 2.5rem;
   padding: 1.5rem;
@@ -55,6 +56,7 @@ const Title = styled(motion.div)`
   line-height: 1.5;
   color: #2d3748;
   font-weight: 600;
+  font-family: sans-serif;
 
   @media screen and (max-width: 780px) {
     font-size: 1.5rem;
@@ -80,7 +82,7 @@ const ButtonGroup = styled(motion.div)`
 const AnswerButton = styled(motion.button)`
   width: 100%;
   padding: 1.5rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align: left;
   background: white;
   border: 2px solid #e2e8f0;
@@ -90,6 +92,7 @@ const AnswerButton = styled(motion.button)`
   line-height: 1.5;
   color: #4a5568;
   position: relative;
+  font-family: sans-serif;
   /* overflow: hidden; */
 
   &:hover {
@@ -126,6 +129,7 @@ const QuestionNumber = styled.div`
   font-size: 0.9rem;
   color: #a0aec0;
   font-weight: 600;
+  font-family: sans-serif;
 `;
 
 const Question = () => {

@@ -32,11 +32,6 @@ const router = createBrowserRouter([
 const GlobalStyle = createGlobalStyle`
   ${reset} // styled-reset을 통해 CSS 리셋 적용
 
-  @font-face {
-    font-family: "SimKyungha";
-    src: url("/fonts/SimKyungha.ttf") format("truetype");
-  }
-
   * {
     margin: 0px;
     padding: 0px;
@@ -52,12 +47,11 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
   }
   body {
-    font-family: "SimKyungha";
+    font-family: sans-serif;
     background: url("/img/home.webp") center/cover no-repeat;
     height: 100vh;  
     @media screen and (max-width: 390px) {
       background: url("/img/media.jpg") center/cover no-repeat;
-      
     }
   }
 `;

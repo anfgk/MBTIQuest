@@ -19,6 +19,7 @@ const Wrapper = styled(motion.div)`
     rgba(255, 255, 255, 0.2) 100%
   );
   backdrop-filter: blur(10px);
+  font-family: sans-serif;
 `;
 
 const Header = styled(motion.div)`
@@ -31,6 +32,7 @@ const Header = styled(motion.div)`
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
   font-weight: 700;
+  font-family: sans-serif;
 
   @media screen and (max-width: 480px) {
     font-size: 1.5rem;
@@ -73,8 +75,8 @@ const ImageSection = styled.div`
   align-items: flex-start;
 
   img {
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     border-radius: 20px;
     object-fit: cover;
   }
@@ -99,17 +101,19 @@ const ResultTitle = styled.div`
   color: white;
   padding: 0.8rem 1.5rem;
   border-radius: 12px;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   text-align: center;
+  font-family: sans-serif;
 `;
 
 const ResultDesc = styled.div`
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.6;
   text-align: center;
   padding: 1rem;
   background: rgba(255, 192, 203, 0.2);
   border-radius: 12px;
+  font-family: sans-serif;
 `;
 
 const ButtonGroup = styled(motion.div)`
@@ -120,7 +124,7 @@ const ButtonGroup = styled(motion.div)`
 
   button {
     padding: 0.8rem 1.5rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     border-radius: 12px;
     font-weight: 600;
   }
@@ -178,11 +182,7 @@ const Result = () => {
           <ResultCard variants={itemVariants}>
             <CardContent>
               <ImageSection>
-                <motion.img
-                  src={resultData.image}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                />
+                <motion.img src={resultData.image} />
               </ImageSection>
               <InfoSection>
                 <ResultTitle>

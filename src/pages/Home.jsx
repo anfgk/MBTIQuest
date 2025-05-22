@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
   color: #000;
+  font-family: sans-serif;
 `;
 
 const Header = styled.div`
@@ -37,12 +38,12 @@ const Contents = styled.div`
 
 const StartButton = styled(motion.button)`
   padding: 1rem 2.5rem;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 500;
   color: white;
   background: #dc3545;
   border: none;
-  border-radius: 50px;
+  border-radius: 20px;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
   transition: all 0.3s ease;
