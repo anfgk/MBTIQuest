@@ -7,10 +7,10 @@ MBTI 테스트를 통해 사용자의 성격 유형을 분석하고 결과를 �
 2025.04.14 ~ 2025.05.02
 
 ## 🌎 Tech
-React.js, Vite, Style-components, GitHub
+React.js, Vite, Style-components, React Router
 
 ## 🖥️ Other Skill
-Kakao Share API, Netlify, React-Bootstrap, Framer Motion, React Router
+Kakao Share API, Netlify, React-Bootstrap, Framer Motion, GitHub
 
 ## 💡 문제점 / 해결방법
 1. 폰트가 일관성 없이 적용되어 있었음
