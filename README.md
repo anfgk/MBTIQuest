@@ -1,4 +1,4 @@
-# MBTI Survery Project
+# MBTI Survey Project
 
 ## 🌈 프로젝트 소개
 MBTI 테스트를 통해 사용자의 성격 유형을 분석하고 결과를 제공하는 웹 애플리케이션입니다.
