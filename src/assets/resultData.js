@@ -81,7 +81,7 @@ export const ResultData = [
     name: "이슬이 누나",
     best: "INFJ",
     desc: "인내심이 많고 통찰력과 직관력이 뛰어나며, 화합을 추구하는 유형이다. 창의력이 좋으며, 성숙한 경우에는 강한 직관력으로 타인에게 말없이도 큰 영향력을 끼친다.",
-    image: "/img/infj.webp",
+    image: "/img/infj.jpg",
   },
   {
     id: 13,
