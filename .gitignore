@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Tests/coverage
+coverage/
+
+# Caches
+.eslintcache
+.cache/
+.parcel-cache/
+.vite/
+
+# Deployment
+.vercel/
+.netlify/
+
+# Swap files
+*.swp
+*.swo
+
