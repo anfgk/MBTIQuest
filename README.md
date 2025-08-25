@@ -1,33 +1,96 @@
-# MBTI Survey Project
+## 프로젝트 소개
 
-## 🌈 프로젝트 소개
-MBTI 테스트를 통해 사용자의 성격 유형을 분석하고 결과를 제공하는 웹 애플리케이션입니다.
+MBTI에서 착안한 성향 테스트를 가볍고 빠른 사용자 경험으로 제공하는 React 기반 SPA입니다. 질문에 답하면 즉시 유형 결과가 제시되고, 카카오톡 공유 및 유형 간 궁합 확인까지 한 번에 이어지는 흐름을 설계했습니다. Vite를 활용해 빠른 개발 환경과 경량 번들을 구성했으며, 데이터 주도 설계로 질문·결과 확장이 용이하도록 구조화했습니다.
 
-## 🕰️ 개발기간
-2025.04.14 ~ 2025.05.02
+## 주요 목표
 
-## 🌎 Tech
-React.js, Vite, Style-components, React Router
+- 설문 흐름 설계와 결과 산출 로직 구현
+- 결과 페이지의 시각적 구성과 소셜 공유 경험 개선
+- 반응형 UI와 경량 번들 환경(Vite) 구성
 
-## 🖥️ Other Skill
-Kakao Share API, Netlify, React-Bootstrap, Framer Motion, GitHub
+## 기술 스택
 
-## 💡 문제점 / 해결방법
-1. 폰트가 일관성 없이 적용되어 있었음
- - 원인: 각 컴포넌트마다 다른 폰트 설정이 있었고, SimKyungha 커스텀 폰트가 전역적으로 설정되어 있었음
- - 해결: GlobalStyle에서 기본 sans-serif 폰트로 통일하고, 각 컴포넌트에도 동일하게 적용
-   
-2. 결과 페이지의 이미지에 불필요한 hover 효과가 있었음
- - 원인: motion.img 컴포넌트에 whileHover와 transition 속성이 설정되어 있어 마우스 오버 시 이미지가 확대되는 효과가 있었음
- - 해결: motion.img 컴포넌트에서 whileHover와 transition 속성을 제거하여 이미지가 정적으로 표시되도록 수정
-   
-3. 버튼의 인터랙션 효과가 일시적으로 제거되었음
- - 원인: 이미지의 hover 효과를 제거하는 과정에서 실수로 버튼의 whileHover와 whileTap 속성도 함께 제거됨
- - 해결: 버튼 컴포넌트에 whileHover={{ scale: 1.05 }}와 whileTap={{ scale: 0.95 }} 속성을 다시 추가하여 사용자 인터랙션 복원
+- **런타임/언어**: JavaScript (ES6+)
+- **프레임워크**: React
+- **번들러**: Vite
+- **스타일**: CSS (기본), 웹폰트(`public/fonts/SimKyungha.ttf`)
+- **배포**: 정적 호스팅(예: Vercel/Netlify/GitHub Pages)
 
-## ✅ 느낀점/배운점
-애니메이션 효과를 무조건적으로 적용하는 것이 아니라, 각 요소의 특성과 목적에 맞게 선택적으로 적용해야 한다는 점도 배웠습니다.
-예를 들어 버튼과 같은 상호작용 요소에는 사용자에게 피드백을 주는 애니메이션이 필요하지만, 이미지와 같은 정적 요소에는 불필요한 움직임이 오히려 사용자 경험을 방해할 수 있다는 것을 알게 되었습니다.
-전체 애플리케이션의 스타일을 효율적으로 관리하는 방법도 배웠습니다. 
-개별 컴포넌트의 스타일링도 중요하지만, 전역적인 스타일 관리가 우선되어야 일관성 있는 디자인을 구현할 수 있다는 점을 깨달았습니다. 
-이러한 경험을 통해 앞으로의 프로젝트에서도 더 나은 사용자 경험을 제공할 수 있을 것 같습니다.
+## 기능 요약
+
+- **설문 진행**: 질문 데이터에 따라 단계별 진행, 점수 집계 후 결과 산출
+- **결과 페이지**: 유형별 이미지/카피 노출, 재시도/공유 CTA 제공
+- **궁합 보기**: 유형 간 호환성 텍스트/매칭 로직 노출
+- **카카오톡 공유**: OG 이미지/텍스트로 결과 공유(`KakaoShareButton.jsx`)
+
+## 페이지 구조
+
+- **Home** (`src/pages/Home.jsx`): 프로젝트 소개, 시작 CTA
+- **Question** (`src/pages/Question.jsx`): 설문 진행, 이전/다음, 진행률
+- **Result** (`src/pages/Result.jsx`): 최종 결과, 재시작/공유/궁합 이동
+
+## 폴더 구조(요약)
+
+```text
+src/
+  assets/
+    compatibilityData.js   # 유형 궁합 데이터
+    questiondata.js        # 설문 질문 데이터
+    resultData.js          # 결과 매핑 데이터
+  components/
+    KakaoShareButton.jsx   # 카카오 공유 버튼 컴포넌트
+    Layout.jsx             # 공통 레이아웃
+    MBTICompatibility.jsx  # 궁합 컴포넌트
+  pages/
+    Home.jsx
+    Question.jsx
+    Result.jsx
+  App.jsx
+  main.jsx
+```
+
+## 실행 방법
+
+```bash
+npm install
+npm run dev
+```
+
+## 빌드/배포
+
+- 개발: `npm run dev` (Vite 개발 서버)
+- 빌드: `npm run build` → `dist/` 산출물 정적 호스팅 배포
+
+## 데이터/로직 개요
+
+- **질문 데이터**: `src/assets/questiondata.js`에서 배열 형태로 관리
+- **결과 매핑**: `src/assets/resultData.js`와 점수 누적 로직으로 유형 산출
+- **궁합 데이터**: `src/assets/compatibilityData.js`의 사전 매핑 사용
+
+## 스크린샷/에셋
+
+- 홈/결과/유형 이미지는 `public/img/` 경로 사용
+  - 예: `public/img/home.jpg`, `public/img/title.png`, `public/img/entp.jpg` 등
+
+## 접근성/UX 고려
+
+- 키보드 포커스 가능한 CTA 버튼
+- 이미지 대체 텍스트 제공(필요 시 개선)
+- 모바일 퍼스트 레이아웃, 가독성 높은 폰트 사이즈
+
+## 개선 아이디어(향후 계획)
+
+- URL 쿼리로 결과 공유(딥링크) 및 상태 영속화
+- 질문/결과 다국어(i18n) 지원
+- 결과 설명의 시각화(그래프/게이지) 추가
+- 유닛 테스트 도입(결과 산출 로직 검증)
+- 성능 최적화: 이미지 최적화(WebP 우선, 적응형 로딩)
+
+## 회고
+
+- 라우팅/상태/데이터-주도 UI 패턴을 단일 흐름으로 연결
+- 소셜 공유와 정적 호스팅까지 포함해 실사용 흐름을 경험
+- 데이터 분리와 컴포넌트화로 확장성을 확보(질문/결과 추가 용이)
+
+
+
