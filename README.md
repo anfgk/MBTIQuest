@@ -16,7 +16,7 @@ MBTI에서 착안한 성향 테스트를 가볍고 빠른 사용자 경험으로
 
 - **Home** (`src/pages/Home.jsx`): 프로젝트 소개, 시작 CTA
 - **Question** (`src/pages/Question.jsx`): 설문 진행, 이전/다음, 진행률
-- **Result** (`src/pages/Result.jsx`): 최종 결과, 재시작/공유/궁합 이동
+- **Result** (`src/pages/Result.jsx`): 최종 결과, 재시작/공유 이동
 
 ## 폴더 구조(요약)
 
@@ -54,7 +54,6 @@ npm run dev
 
 - **질문 데이터**: `src/assets/questiondata.js`에서 배열 형태로 관리
 - **결과 매핑**: `src/assets/resultData.js`와 점수 누적 로직으로 유형 산출
-- **궁합 데이터**: `src/assets/compatibilityData.js`의 사전 매핑 사용
 
 ## 스크린샷/에셋
 
@@ -67,7 +66,7 @@ npm run dev
 - 이미지 대체 텍스트 제공(필요 시 개선)
 - 모바일 퍼스트 레이아웃, 가독성 높은 폰트 사이즈
 
-## 개선 아이디어(향후 계획)
+## 개선 아이디어
 
 - URL 쿼리로 결과 공유(딥링크) 및 상태 영속화
 - 질문/결과 다국어(i18n) 지원
