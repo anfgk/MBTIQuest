@@ -2,6 +2,13 @@
 
 MBTI에서 착안한 성향 테스트를 가볍고 빠른 사용자 경험으로 제공하는 React 기반 SPA입니다. 질문에 답하면 즉시 유형 결과가 제시되고, 카카오톡 공유 및 유형 간 궁합 확인까지 한 번에 이어지는 흐름을 설계했습니다. Vite를 활용해 빠른 개발 환경과 경량 번들을 구성했으며, 데이터 주도 설계로 질문·결과 확장이 용이하도록 구조화했습니다.
 
+## 실행 방법
+
+```bash
+npm install
+npm run dev
+```
+
 ## 기술 스택
 
 `JavaScript` `React` `Vite` `styled-components`
@@ -37,18 +44,6 @@ src/
   App.jsx
   main.jsx
 ```
-
-## 실행 방법
-
-```bash
-npm install
-npm run dev
-```
-
-## 빌드/배포
-
-- 개발: `npm run dev` (Vite 개발 서버)
-- 빌드: `npm run build` → `dist/` 산출물 정적 호스팅 배포
 
 ## 데이터/로직 개요
 
